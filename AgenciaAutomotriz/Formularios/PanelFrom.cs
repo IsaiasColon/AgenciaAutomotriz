@@ -15,6 +15,7 @@ namespace AgenciaAutomotriz.Formularios
     public partial class PanelFrom : Form
     {
         AutomovilCRUD clase = new AutomovilCRUD();
+        Operaciones xOperaciones = new Operaciones();
 
         AddAutomovilForm frmAutomovil = new AddAutomovilForm();
         AddLoginForm frmLogin = new AddLoginForm();
@@ -92,7 +93,12 @@ namespace AgenciaAutomotriz.Formularios
 
         private void btnOrdenar_Click(object sender, EventArgs e)
         {
+            List<Automovil> datos = new List<Automovil>();
+            dgvAutomoviles.DataSource = null;
 
+            xOperaciones.ConsultarPorColor("Negro");
+
+            dgvAutomoviles.DataSource = datos;
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
