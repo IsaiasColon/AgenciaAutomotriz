@@ -26,13 +26,12 @@ namespace AgenciaAutomotriz.Formularios
 
         private void PanelFrom_Load(object sender, EventArgs e)
         {
-
+            Recargar();
         }
 
         private void dgvAutomoviles_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            var sss = (sender as Automovil);
-            
+            var sss = (sender as Automovil);            
         }
 
         private Login login;
@@ -55,23 +54,8 @@ namespace AgenciaAutomotriz.Formularios
             List<Automovil> datos = new List<Automovil>();
             dgvAutomoviles.DataSource = null;
 
-            if (CurrentLogin != null)
-            {
-                isLogged();
-                if (CurrentLogin.Tipo == "Admin")
-                {
-                    //datos = clase.Read();
-                }
-                else
-                {
-                    //datos = clase.GetLast3();
-                }
-                dgvAutomoviles.DataSource = datos;
-            }
-            else
-            {
-                //dgvAutomoviles.DataSource = clase.Read();
-            }
+            datos = clase.Read();
+            dgvAutomoviles.DataSource = datos;
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -91,16 +75,6 @@ namespace AgenciaAutomotriz.Formularios
             Recargar();
         }
 
-        private void btnOrdenar_Click(object sender, EventArgs e)
-        {
-            List<Automovil> datos = new List<Automovil>();
-            dgvAutomoviles.DataSource = null;
-
-            xOperaciones.ConsultarPorColor("Negro");
-
-            dgvAutomoviles.DataSource = datos;
-        }
-
         private void btnSalir_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -109,6 +83,16 @@ namespace AgenciaAutomotriz.Formularios
         private void btnCerrarSesion_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnConsultar_Click(object sender, EventArgs e)
+        {
+            List<Automovil> datos = new List<Automovil>();
+            dgvAutomoviles.DataSource = null;
+
+            datos = xOperaciones.ConsultarPorColor(txtColor.Text);
+
+            dgvAutomoviles.DataSource = datos;
         }
     }
 }

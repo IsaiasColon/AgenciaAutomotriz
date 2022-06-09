@@ -30,6 +30,39 @@ namespace AgenciaAutomotriz.Gestion
                 cmd.ExecuteNonQuery();
             }
         }
+        // Metodo para leer los registros
+        public List<Automovil> Read()
+        {
+            using (var conexion = new SqlConnection(connectionString))
+            {
+                conexion.Open();
+                SqlCommand cmd = new SqlCommand("ObtenerAutos", conexion);
+                cmd.CommandType = CommandType.StoredProcedure;
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                List<Automovil> automoviles = new List<Automovil>();
+                int id = 0;
+                string marca = "";
+                string modelo = "";
+                string tipo = "";
+                string color = "";
+
+                while (reader.Read())
+                {
+                    id = (int)reader[0];
+                    marca = reader[1].ToString();
+                    modelo = reader[2].ToString();
+                    tipo = reader[3].ToString();
+                    color = reader[4].ToString();
+
+                    Automovil automovil = new Automovil() { Id = id, Marca = marca, Modelo = modelo, Tipo = tipo, Color = color };
+                    automoviles.Add(automovil);
+                }
+
+                reader.Close();
+                return automoviles;
+            }
+        }
 
         // Metodo para actualizar o modificar los registros
         public void Modificar(Automovil automovil)
