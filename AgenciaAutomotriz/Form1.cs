@@ -26,7 +26,7 @@ namespace AgenciaAutomotriz
             bool login = clase.IniciarSesion(txtUsuario.Text, txtPassword.Text);
             if (login)
             {
-                Form1 main = Form1.ActiveForm.Container as Form1;
+                panel.ShowDialog();
                 //main.CurrentLogin = login;
                 this.Close();
             }

@@ -22,7 +22,7 @@ namespace AgenciaAutomotriz.Gestion
                 cmd.Parameters.AddWithValue("Usuario", usuario);
                 cmd.Parameters.AddWithValue("Password", password);
 
-                int resp = cmd.ExecuteNonQuery();
+                int resp = (int)cmd.ExecuteScalar();
                 if (resp > 0)
                 {
                     return true;
