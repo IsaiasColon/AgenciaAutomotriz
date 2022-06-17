@@ -46,6 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AgenciaAutomotrizDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AgenciaAutomotrizDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -64,6 +69,12 @@
     <Compile Include="Formularios\AddLoginForm.Designer.cs">
       <DependentUpon>AddLoginForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\MovimientoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\MovimientoForm.Designer.cs">
+      <DependentUpon>MovimientoForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\PanelFrom.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -75,6 +86,7 @@
     <Compile Include="Gestion\Operaciones.cs" />
     <Compile Include="Modelos\Automovil.cs" />
     <Compile Include="Modelos\Login.cs" />
+    <Compile Include="Modelos\Movimiento.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
@@ -85,6 +97,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\AddLoginForm.resx">
       <DependentUpon>AddLoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\MovimientoForm.resx">
+      <DependentUpon>MovimientoForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\PanelFrom.resx">
       <DependentUpon>PanelFrom.cs</DependentUpon>
@@ -98,6 +113,17 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="AgenciaAutomotrizDataSet.xsc">
+      <DependentUpon>AgenciaAutomotrizDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="AgenciaAutomotrizDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>AgenciaAutomotrizDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="AgenciaAutomotrizDataSet.xss">
+      <DependentUpon>AgenciaAutomotrizDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

@@ -46,6 +46,7 @@ namespace AgenciaAutomotriz.Gestion
                 string modelo = "";
                 string tipo = "";
                 string color = "";
+                int total = 0;
 
                 while (reader.Read())
                 {
@@ -54,8 +55,9 @@ namespace AgenciaAutomotriz.Gestion
                     modelo = reader[2].ToString();
                     tipo = reader[3].ToString();
                     color = reader[4].ToString();
+                    total = (int)reader[5];
 
-                    Automovil automovil = new Automovil() { Id = id, Marca = marca, Modelo = modelo, Tipo = tipo, Color = color };
+                    Automovil automovil = new Automovil() { Id = id, Marca = marca, Modelo = modelo, Tipo = tipo, Color = color, Total = total };
                     automoviles.Add(automovil);
                 }
 

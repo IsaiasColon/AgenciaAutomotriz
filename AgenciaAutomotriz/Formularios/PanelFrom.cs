@@ -19,13 +19,28 @@ namespace AgenciaAutomotriz.Formularios
 
         AddAutomovilForm frmAutomovil = new AddAutomovilForm();
         AddLoginForm frmLogin = new AddLoginForm();
+        MovimientoForm frmMovimiento = new MovimientoForm();
         public PanelFrom()
         {
             InitializeComponent();
+            frmAutomovil.FormClosed += FrmAutomovil_FormClosed;
+            frmMovimiento.FormClosed += FrmMovimiento_FormClosed;
+        }
+
+        private void FrmMovimiento_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Recargar();
+        }
+
+        private void FrmAutomovil_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Recargar();
         }
 
         private void PanelFrom_Load(object sender, EventArgs e)
         {
+            // TODO: esta línea de código carga datos en la tabla 'agenciaAutomotrizDataSet.Automovil' Puede moverla o quitarla según sea necesario.
+            this.automovilTableAdapter.Fill(this.agenciaAutomotrizDataSet.Automovil);
             Recargar();
         }
 
@@ -93,6 +108,23 @@ namespace AgenciaAutomotriz.Formularios
             datos = xOperaciones.ConsultarPorColor(txtColor.Text);
 
             dgvAutomoviles.DataSource = datos;
+        }
+
+        private void btnEntrada_Click(object sender, EventArgs e)
+        {
+            int automovilId = (dgvAutomoviles.CurrentRow.DataBoundItem as Automovil).Id;
+           
+            frmMovimiento.Tipo = "Entrada";
+            frmMovimiento.IdAutomovil = automovilId;
+            frmMovimiento.ShowDialog();
+        }
+
+        private void btnSalida_Click(object sender, EventArgs e)
+        {
+            int automovilId = (dgvAutomoviles.CurrentRow.DataBoundItem as Automovil).Id;
+            frmMovimiento.Tipo = "Salida";
+            frmMovimiento.IdAutomovil = automovilId;
+            frmMovimiento.ShowDialog();
         }
     }
 }
