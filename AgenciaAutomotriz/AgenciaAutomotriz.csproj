@@ -52,8 +52,43 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\AddAutomovilForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\AddAutomovilForm.Designer.cs">
+      <DependentUpon>AddAutomovilForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\AddLoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\AddLoginForm.Designer.cs">
+      <DependentUpon>AddLoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\PanelFrom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\PanelFrom.Designer.cs">
+      <DependentUpon>PanelFrom.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gestion\AutomovilCRUD.cs" />
+    <Compile Include="Gestion\LoginCRUD.cs" />
+    <Compile Include="Gestion\Operaciones.cs" />
+    <Compile Include="Modelos\Automovil.cs" />
+    <Compile Include="Modelos\Login.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\AddAutomovilForm.resx">
+      <DependentUpon>AddAutomovilForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\AddLoginForm.resx">
+      <DependentUpon>AddLoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\PanelFrom.resx">
+      <DependentUpon>PanelFrom.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -76,5 +111,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
