@@ -71,5 +71,19 @@ namespace AgenciaAutomotriz.Gestion
 
             }
         }
+
+        public void AgregarMovimiento(string tipo, int automovil, int cantidad)
+        {
+            using (SqlConnection conexion = new SqlConnection(connectionString))
+            {
+                conexion.Open();
+                string comando = string.Format("INSERT INTO Movimiento (Tipo, Automovil, Cantidad) VALUES ('{0}', '{1}', '{2}')", tipo, automovil, cantidad);
+                using (SqlCommand cmd = new SqlCommand(comando, conexion))
+                {
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    reader.Close();
+                }
+            }
+        }
     }
 }

@@ -19,9 +19,11 @@ namespace AgenciaAutomotriz.Formularios
 
         AddAutomovilForm frmAutomovil = new AddAutomovilForm();
         AddLoginForm frmLogin = new AddLoginForm();
+        MovimientoForm frmMovimiento = new MovimientoForm();
         public PanelFrom()
         {
             InitializeComponent();
+
         }
 
         private void PanelFrom_Load(object sender, EventArgs e)
@@ -93,6 +95,24 @@ namespace AgenciaAutomotriz.Formularios
             datos = xOperaciones.ConsultarPorColor(txtColor.Text);
 
             dgvAutomoviles.DataSource = datos;
+        }
+
+        private void btnEntrada_Click(object sender, EventArgs e)
+        {
+            int automovilId = (dgvAutomoviles.CurrentRow.DataBoundItem as Automovil).Id;
+            MovimientoForm movimientoForm = new MovimientoForm();
+            movimientoForm.Tipo = "Entrada";
+            movimientoForm.IdAutomovil = automovilId;
+            movimientoForm.ShowDialog();
+        }
+
+        private void btnSalida_Click(object sender, EventArgs e)
+        {
+            int automovilId = (dgvAutomoviles.CurrentRow.DataBoundItem as Automovil).Id;
+            MovimientoForm movimientoForm = new MovimientoForm();
+            movimientoForm.Tipo = "Salida";
+            movimientoForm.IdAutomovil = automovilId;
+            movimientoForm.ShowDialog();
         }
     }
 }

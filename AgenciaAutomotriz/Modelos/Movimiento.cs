@@ -6,13 +6,12 @@ using System.Threading.Tasks;
 
 namespace AgenciaAutomotriz.Modelos
 {
-    public class Automovil
+    public class Movimiento
     {
         public int Id { get; set; }
-        public string Marca { get; set; }
-        public string Modelo { get; set; }
         public string Tipo { get; set; }
-        public string Color { get; set; }
-        public int Total { get; set; }
+        public int Automovil { get; set; }
+        public int Cantidad { get; set; }
+        public DateTime Fecha { get; set; }
     }
 }

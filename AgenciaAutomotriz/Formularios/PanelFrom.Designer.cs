@@ -38,6 +38,8 @@
             this.dgvAutomoviles = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.txtColor = new System.Windows.Forms.TextBox();
+            this.btnEntrada = new System.Windows.Forms.Button();
+            this.btnSalida = new System.Windows.Forms.Button();
             label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAutomoviles)).BeginInit();
             this.SuspendLayout();
@@ -142,11 +144,38 @@
             this.txtColor.TabIndex = 17;
             this.txtColor.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
+            // btnEntrada
+            // 
+            this.btnEntrada.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnEntrada.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEntrada.Location = new System.Drawing.Point(515, 168);
+            this.btnEntrada.Name = "btnEntrada";
+            this.btnEntrada.Size = new System.Drawing.Size(45, 43);
+            this.btnEntrada.TabIndex = 19;
+            this.btnEntrada.Text = "+";
+            this.btnEntrada.UseVisualStyleBackColor = true;
+            this.btnEntrada.Click += new System.EventHandler(this.btnEntrada_Click);
+            // 
+            // btnSalida
+            // 
+            this.btnSalida.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnSalida.AutoSize = true;
+            this.btnSalida.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSalida.Location = new System.Drawing.Point(515, 217);
+            this.btnSalida.Name = "btnSalida";
+            this.btnSalida.Size = new System.Drawing.Size(45, 34);
+            this.btnSalida.TabIndex = 20;
+            this.btnSalida.Text = "-";
+            this.btnSalida.UseVisualStyleBackColor = true;
+            this.btnSalida.Click += new System.EventHandler(this.btnSalida_Click);
+            // 
             // PanelFrom
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(522, 320);
+            this.ClientSize = new System.Drawing.Size(567, 320);
+            this.Controls.Add(this.btnSalida);
+            this.Controls.Add(this.btnEntrada);
             this.Controls.Add(label2);
             this.Controls.Add(this.txtColor);
             this.Controls.Add(this.btnConsultar);
@@ -177,5 +206,7 @@
         private System.Windows.Forms.DataGridView dgvAutomoviles;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtColor;
+        private System.Windows.Forms.Button btnEntrada;
+        private System.Windows.Forms.Button btnSalida;
     }
 }
